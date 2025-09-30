@@ -3,9 +3,8 @@ import { StatusCodes } from 'http-status-codes';
 import { faker } from '@faker-js/faker';
 import { SimpleReporter } from '../simple-reporter';
 
-beforeAll(() => {
-  pactum.reporter.add(SimpleReporter);
-});
+beforeAll(() => pactum.reporter.add(SimpleReporter));
+afterAll(() => pactum.reporter.end());
 
 describe('Basic integration tests restful-api.dev /objects', () => {
   const baseUrl = 'https://api.restful-api.dev';
